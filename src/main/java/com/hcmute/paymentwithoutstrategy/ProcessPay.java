@@ -12,13 +12,8 @@ import java.util.Scanner;
  */
 public class ProcessPay {
     private int totalCost = 0;
-    private boolean isClosed = false;
-    private CreditCard card;
-    private static Scanner scanner = new Scanner(System.in);
-
     public ProcessPay() {
     }
-    
     // <editor-fold defaultstate="collapsed" desc="Without Strategy Design Pattern">  
     public void getDetail() {
     }
@@ -36,11 +31,4 @@ public class ProcessPay {
         return totalCost;
     }
 
-    public boolean isClosed() {
-        return isClosed;
-    }
-
-    public void setClosed() {
-        isClosed = true;
-    }
 }
