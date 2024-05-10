@@ -10,15 +10,15 @@ import java.util.Scanner;
  *
  * @author ADMIN
  */
-public class ProcessPay {
+public class ProcessPayment {
     private int totalCost = 0;
-    public ProcessPay() {
+    public ProcessPayment() {
     }
     // <editor-fold defaultstate="collapsed" desc="Without Strategy Design Pattern">  
-    public void getDetail() {
+    public void getPaymentDetails() {
     }
     
-    boolean isPay(int totalCost) throws InterruptedException {
+    boolean isPaid(int totalCost) throws InterruptedException {
         return true;
     }
     // </editor-fold>    

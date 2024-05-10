@@ -10,14 +10,14 @@ import java.util.Scanner;
  *
  * @author thieu
  */
-public class PaypalPay extends ProcessPay {
+public class PaypalPayment extends ProcessPayment {
 
     private static Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void getDetail() {
-        super.getDetail();
-        System.out.println("-----Pay with PayPal-----");
+    public void getPaymentDetails() {
+        super.getPaymentDetails();
+        System.out.println("-----Account Information-----");
         System.out.print("Enter the user's email: ");
         String email = scanner.nextLine();
         System.out.print("Enter the password: ");
@@ -27,9 +27,9 @@ public class PaypalPay extends ProcessPay {
     }
 
     @Override
-    boolean isPay(int totalCost) throws InterruptedException {
+    boolean isPaid(int totalCost) throws InterruptedException {
         System.out.println("--> Paying " + totalCost + " using PayPal.");
-        return super.isPay(totalCost);
+        return super.isPaid(totalCost);
     }
 
 }

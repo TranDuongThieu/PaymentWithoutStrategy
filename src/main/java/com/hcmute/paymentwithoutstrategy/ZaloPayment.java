@@ -10,13 +10,13 @@ import java.util.Scanner;
  *
  * @author thieu
  */
-public class ZaloPay extends ProcessPay {
+public class ZaloPayment extends ProcessPayment {
 
     private static Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void getDetail() {
-        System.out.println("-----Pay with ZaloPay-----");
+    public void getPaymentDetails() {
+        System.out.println("-----Account Information-----");
         System.out.print("Enter the user's email: ");
         String email = scanner.nextLine();;
         System.out.print("Enter the password: ");
@@ -26,9 +26,9 @@ public class ZaloPay extends ProcessPay {
     }
 
     @Override
-    boolean isPay(int totalCost) throws InterruptedException {
+    boolean isPaid(int totalCost) throws InterruptedException {
         System.out.println("--> Paying " + totalCost + " using ZaloPay.");
-        return super.isPay(totalCost);
+        return super.isPaid(totalCost);
     }
-    
+
 }

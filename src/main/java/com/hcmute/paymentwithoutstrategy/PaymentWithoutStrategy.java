@@ -14,8 +14,8 @@ import java.util.Scanner;
 public class PaymentWithoutStrategy {
 
     private static Map<Integer, Integer> productList = new HashMap<>();
-    private static ProcessPay procPay = new ProcessPay();
-    private static ProcessPay concreteProcess = new ProcessPay();
+    private static ProcessPayment procPay = new ProcessPayment();
+    private static ProcessPayment concreteProcess = new ProcessPayment();
     private static Scanner scanner = new Scanner(System.in);
 
     int idx = 0;
@@ -54,26 +54,26 @@ public class PaymentWithoutStrategy {
         System.out.println("-->" + procPay.getTotalCost());
         System.out.println("--> Please, select a payment method:\n"
                 + "\t1 - PayPal\n"
-                + "\t2 - Momo Card\n"
+                + "\t2 - Credit Card\n"
                 + "\t3 - ZaloPay Card");
         String paymentMethod = scanner.nextLine();
 //            int totalCost = procPay.getTotalCost();
         switch (paymentMethod) {
             case "1":
-                concreteProcess = new PaypalPay();
+                concreteProcess = new PaypalPayment();
                 break;
             case "2":
-                concreteProcess = new MomoPay();
+                concreteProcess = new CreditCardPayment();
                 break;
             case "3":
-                concreteProcess = new ZaloPay();
+                concreteProcess = new ZaloPayment();
                 break;
         }
         concreteProcess.setTotalCost(procPay.getTotalCost());
-        concreteProcess.getDetail();
+        concreteProcess.getPaymentDetails();
 
         Thread.sleep(1000);
-        if (concreteProcess.isPay(concreteProcess.getTotalCost())) {
+        if (concreteProcess.isPaid(concreteProcess.getTotalCost())) {
             System.out.println("--> Payment has been successful.");
         } else {
             System.out.println("--> FAIL! Please, check your data.");

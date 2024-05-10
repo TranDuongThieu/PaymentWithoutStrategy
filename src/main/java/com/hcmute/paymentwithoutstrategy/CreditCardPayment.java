@@ -10,21 +10,19 @@ import java.util.Scanner;
  *
  * @author thieu
  */
-public class MomoPay extends ProcessPay {
+public class CreditCardPayment extends ProcessPayment {
 
     private CreditCard card;
     private static Scanner scanner = new Scanner(System.in);
 
-//    public MomoPay(CreditCard card)
+//    public CreditCardPayment(CreditCard card)
 //    {
 //        supe;
 //        this.card = card;
 //    }
-
-    
     @Override
-    public void getDetail() {
-        System.out.println("-----Pay with Momo-----");
+    public void getPaymentDetails() {
+        System.out.println("-----Card Information-----");
         System.out.print("Enter the card number: ");
         String number = scanner.nextLine();
         System.out.print("Enter the card expiration date 'mm/yy': ");
@@ -33,12 +31,12 @@ public class MomoPay extends ProcessPay {
         String cvv = scanner.nextLine();
         card = new CreditCard(number, date, cvv);
         System.out.print("Validate credit card number...\n\n");
-        super.getDetail(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        super.getPaymentDetails(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
     @Override
-    boolean isPay(int totalCost) throws InterruptedException {
-        System.out.println("--> Paying " + totalCost + " using Momo.");
+    boolean isPaid(int totalCost) throws InterruptedException {
+        System.out.println("--> Paying " + totalCost + " using Credit Card.");
         return true;
     }
 
@@ -47,5 +45,4 @@ public class MomoPay extends ProcessPay {
         return super.getTotalCost(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
-    
 }
